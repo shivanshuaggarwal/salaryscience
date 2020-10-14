@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/css/app.css">
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<body>
+  <script> 
+    function onlyAlphabetKey(evt) { 
+          
+        // Only ASCII charactar in that range allowed 
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode 
+        if ((ASCIICode >= 65 && ASCIICode <= 90) || (ASCIICode >= 97 && ASCIICode <= 122) || (ASCIICode==32)) 
+            return true; 
+        return false; 
+    } 
+</script>
+    <!-- Navbar Start-->
+    <nav class="navbar navbar-light bg-light" style= "align:center";>
+        <div class="container-fluid" >
+            <div class="row" >
+                <img src="../static/images/nagarro_icon_new_2.png" style="width:160px;height:55px;">
+                <a class="navbar-brand" href="#/" style=""><i class="fa fa-2x fa-plane" aria-hidden="true"></i> &nbsp;<b> CTC Calculator </b></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End-->
+
+    <!-- container start-->
+    <div class="container col-sm-6" >
+      <h5 style="align-content: center;"><b>Candidate Information</b></h5>
+      <br/>
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1"><b>Experience</b></label>
+          <div class="row" style="margin-left: 2px;">
+            <div class="column" style="width: 48%;">
+            <select class="form-control" id="select_year">           
+              {% for i in (years): %}
+                  <option>{{i}}</option>
+              {% endfor %}
+            </select> 
+            <small id="emailHelp" class="form-text text-muted">Years</small>
+            </div>
+            <div class="column" style="margin-left: 10px;width: 48%;">
+              <select class="form-control" id="select_month">           
+                {% for i in (months): %}
+                    <option>{{i}}</option>
+                {% endfor %}
+              </select> 
+              <small id="emailHelp" class="form-text text-muted">Months</small>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"><b>Skill</b></label>
+          <select class="form-control" id="select_skill">           
+            {% for i in (skills): %}
+                <option>{{i}}</option>
+            {% endfor %}
+          </select> 
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"><b>Location</b></label>
+          <input type="text" class="form-control" id="input_location" placeholder="e.g. Gurugram, Jaipur" onkeypress="return onlyAlphabetKey(event)">
+        </div>
+        <button type="button" id="btn_predict" class="btn btn-primary btn-lg btn-block">Calculate CTC</button>
+      </form>
+      <br><br>
+      <h5>
+      <div class='result container font-weight-bold col-sm-6' style="align-content: center;"></div>
+      </h5>  
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="static/js/app.js"></script>
+
+</html>
